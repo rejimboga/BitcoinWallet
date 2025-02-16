@@ -152,7 +152,10 @@ final class WalletViewController: BaseViewController, Navigatable {
     
     // MARK: - Private methods
     @objc private func topUp(_ sender: UIButton) {
-        print("top up account's balance")
+        transition(
+            to: Route.topUp,
+            as: .modal(presentationStyle: .overFullScreen, transitionStyle: .crossDissolve, animated: true)
+        )
     }
     
     @objc private func newTransaction(_ sender: UIButton) {

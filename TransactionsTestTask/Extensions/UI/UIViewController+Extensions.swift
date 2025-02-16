@@ -11,7 +11,7 @@ extension UIViewController {
     
     enum TransitionStyle {
         case navigation(animated: Bool)
-        case modal(style: UIModalPresentationStyle, animated: Bool)
+        case modal(presentationStyle: UIModalPresentationStyle, transitionStyle: UIModalTransitionStyle, animated: Bool)
     }
     
     func transition(to vc: Routable, as style: TransitionStyle) {
@@ -20,8 +20,9 @@ extension UIViewController {
             switch style {
             case .navigation(let animated):
                 self?.navigationController?.pushViewController(vc, animated: animated)
-            case .modal(let style, let animated):
-                vc.modalPresentationStyle = style
+            case .modal(let presentationStyle, let transitionStyle, let animated):
+                vc.modalPresentationStyle = presentationStyle
+                vc.modalTransitionStyle = transitionStyle
                 self?.present(vc, animated: animated)
             }
         }

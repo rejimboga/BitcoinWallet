@@ -31,6 +31,10 @@
 		C0EF0FEC2D61CDC500C5FDA7 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FEB2D61CDC500C5FDA7 /* BaseViewModel.swift */; };
 		C0EF0FEE2D61D6ED00C5FDA7 /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FED2D61D6ED00C5FDA7 /* Variable.swift */; };
 		C0EF0FF12D61E48900C5FDA7 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FF02D61E48900C5FDA7 /* Double+Extensions.swift */; };
+		C0EF0FF62D61EE3700C5FDA7 /* TopUpPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FF52D61EE3700C5FDA7 /* TopUpPopupViewController.swift */; };
+		C0EF0FF82D61F6C700C5FDA7 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FF72D61F6C700C5FDA7 /* UITextField+Extensions.swift */; };
+		C0EF10082D620B3D00C5FDA7 /* Number+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF10072D620B3D00C5FDA7 /* Number+Extensions.swift */; };
+		C0EF100B2D620BBC00C5FDA7 /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF100A2D620BBC00C5FDA7 /* AmountTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +83,10 @@
 		C0EF0FEB2D61CDC500C5FDA7 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		C0EF0FED2D61D6ED00C5FDA7 /* Variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variable.swift; sourceTree = "<group>"; };
 		C0EF0FF02D61E48900C5FDA7 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		C0EF0FF52D61EE3700C5FDA7 /* TopUpPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUpPopupViewController.swift; sourceTree = "<group>"; };
+		C0EF0FF72D61F6C700C5FDA7 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		C0EF10072D620B3D00C5FDA7 /* Number+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Extensions.swift"; sourceTree = "<group>"; };
+		C0EF100A2D620BBC00C5FDA7 /* AmountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +154,7 @@
 		1CA3B6542D22B0F500176711 /* TransactionsTestTask */ = {
 			isa = PBXGroup;
 			children = (
+				C0EF0FF22D61EE0F00C5FDA7 /* TopUpPopup */,
 				1CA3B6552D22B0F500176711 /* AppDelegate.swift */,
 				C0EF0FD42D61C9D700C5FDA7 /* Extensions */,
 				C0EF0FD12D61C9AE00C5FDA7 /* Domain */,
@@ -221,6 +230,7 @@
 		C0EF0FCD2D61C96700C5FDA7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C0EF10092D620BB200C5FDA7 /* TextField */,
 				C0EF0FD82D61CA5800C5FDA7 /* Button */,
 				C0EF0FCE2D61C97100C5FDA7 /* Controller */,
 			);
@@ -264,6 +274,7 @@
 				C0EF0FDD2D61CAA400C5FDA7 /* UIStackView+Extensions.swift */,
 				C0EF0FDF2D61CAC200C5FDA7 /* UIButton+Extensions.swift */,
 				C0EF0FE12D61CB0200C5FDA7 /* UIViewController+Extensions.swift */,
+				C0EF0FF72D61F6C700C5FDA7 /* UITextField+Extensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -280,8 +291,41 @@
 			isa = PBXGroup;
 			children = (
 				C0EF0FF02D61E48900C5FDA7 /* Double+Extensions.swift */,
+				C0EF10072D620B3D00C5FDA7 /* Number+Extensions.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		C0EF0FF22D61EE0F00C5FDA7 /* TopUpPopup */ = {
+			isa = PBXGroup;
+			children = (
+				C0EF0FF42D61EE2500C5FDA7 /* ViewModel */,
+				C0EF0FF32D61EE1F00C5FDA7 /* View */,
+			);
+			path = TopUpPopup;
+			sourceTree = "<group>";
+		};
+		C0EF0FF32D61EE1F00C5FDA7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C0EF0FF52D61EE3700C5FDA7 /* TopUpPopupViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0EF0FF42D61EE2500C5FDA7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C0EF10092D620BB200C5FDA7 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				C0EF100A2D620BBC00C5FDA7 /* AmountTextField.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,9 +458,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0EF0FF82D61F6C700C5FDA7 /* UITextField+Extensions.swift in Sources */,
 				0DF1D1432D22DCD8001626E7 /* PerformOnce.swift in Sources */,
 				0DF1D1452D22DD06001626E7 /* BitcoinRateService.swift in Sources */,
 				C0EF0FDC2D61CA8100C5FDA7 /* UILabel+Extensions.swift in Sources */,
+				C0EF100B2D620BBC00C5FDA7 /* AmountTextField.swift in Sources */,
 				1CA3B65A2D22B0F500176711 /* WalletViewController.swift in Sources */,
 				C0EF0FDA2D61CA6100C5FDA7 /* VerticalButton.swift in Sources */,
 				C0EF0FD72D61C9EA00C5FDA7 /* UIView+Extensions.swift in Sources */,
@@ -424,6 +470,7 @@
 				1CA3B6602D22B0F500176711 /* TransactionsTestTask.xcdatamodeld in Sources */,
 				C0EF0FD02D61C98E00C5FDA7 /* BaseViewController.swift in Sources */,
 				C0EF0FF12D61E48900C5FDA7 /* Double+Extensions.swift in Sources */,
+				C0EF10082D620B3D00C5FDA7 /* Number+Extensions.swift in Sources */,
 				C0EF0FDE2D61CAA400C5FDA7 /* UIStackView+Extensions.swift in Sources */,
 				C0EF0FE62D61CB3F00C5FDA7 /* UpdateUI.swift in Sources */,
 				C0EF0FE22D61CB0200C5FDA7 /* UIViewController+Extensions.swift in Sources */,
@@ -434,6 +481,7 @@
 				C0EF0FEA2D61CDA800C5FDA7 /* WalletViewModel.swift in Sources */,
 				C0EF0FE02D61CAC200C5FDA7 /* UIButton+Extensions.swift in Sources */,
 				C0EF0FE82D61CB7D00C5FDA7 /* WalletRoutes.swift in Sources */,
+				C0EF0FF62D61EE3700C5FDA7 /* TopUpPopupViewController.swift in Sources */,
 				C0EF0FEE2D61D6ED00C5FDA7 /* Variable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

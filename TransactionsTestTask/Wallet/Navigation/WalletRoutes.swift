@@ -18,7 +18,7 @@ enum WalletRoutes: Routable {
         case .newTransaction:
             return UIViewController()
         case .topUp:
-            return UIViewController()
+            return TopUpPopupViewController()
         }
     }
 }
