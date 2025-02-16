@@ -16,6 +16,8 @@
 		1CA3B6622D22B0F600176711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3B6612D22B0F600176711 /* Assets.xcassets */; };
 		1CA3B6652D22B0F600176711 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3B6642D22B0F600176711 /* Base */; };
 		1CA3B6702D22B0F600176711 /* TransactionsTestTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3B66F2D22B0F600176711 /* TransactionsTestTaskTests.swift */; };
+		C0D59BD42D6267F6006B936E /* VerticalEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D59BD32D6267F6006B936E /* VerticalEmptyView.swift */; };
+		C0D59BD62D626B88006B936E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D59BD52D626B88006B936E /* Transaction.swift */; };
 		C0EF0FD02D61C98E00C5FDA7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FCF2D61C98E00C5FDA7 /* BaseViewController.swift */; };
 		C0EF0FD32D61C9B500C5FDA7 /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FD22D61C9B500C5FDA7 /* Bag.swift */; };
 		C0EF0FD72D61C9EA00C5FDA7 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FD62D61C9EA00C5FDA7 /* UIView+Extensions.swift */; };
@@ -68,6 +70,8 @@
 		1CA3B66B2D22B0F600176711 /* TransactionsTestTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsTestTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA3B66F2D22B0F600176711 /* TransactionsTestTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTestTaskTests.swift; sourceTree = "<group>"; };
 		1CA3B6752D22B0F600176711 /* TransactionsTestTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsTestTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0D59BD32D6267F6006B936E /* VerticalEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalEmptyView.swift; sourceTree = "<group>"; };
+		C0D59BD52D626B88006B936E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		C0EF0FCF2D61C98E00C5FDA7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C0EF0FD22D61C9B500C5FDA7 /* Bag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
 		C0EF0FD62D61C9EA00C5FDA7 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -174,6 +178,14 @@
 			path = TransactionsTestTaskTests;
 			sourceTree = "<group>";
 		};
+		C0D59BD22D6267EC006B936E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				C0D59BD32D6267F6006B936E /* VerticalEmptyView.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		C0EF0FC72D61C63500C5FDA7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +227,7 @@
 		C0EF0FCB2D61C8CE00C5FDA7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C0D59BD52D626B88006B936E /* Transaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -230,6 +243,7 @@
 		C0EF0FCD2D61C96700C5FDA7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C0D59BD22D6267EC006B936E /* Other */,
 				C0EF10092D620BB200C5FDA7 /* TextField */,
 				C0EF0FD82D61CA5800C5FDA7 /* Button */,
 				C0EF0FCE2D61C97100C5FDA7 /* Controller */,
@@ -472,8 +486,10 @@
 				C0EF0FF12D61E48900C5FDA7 /* Double+Extensions.swift in Sources */,
 				C0EF10082D620B3D00C5FDA7 /* Number+Extensions.swift in Sources */,
 				C0EF0FDE2D61CAA400C5FDA7 /* UIStackView+Extensions.swift in Sources */,
+				C0D59BD42D6267F6006B936E /* VerticalEmptyView.swift in Sources */,
 				C0EF0FE62D61CB3F00C5FDA7 /* UpdateUI.swift in Sources */,
 				C0EF0FE22D61CB0200C5FDA7 /* UIViewController+Extensions.swift in Sources */,
+				C0D59BD62D626B88006B936E /* Transaction.swift in Sources */,
 				C0EF0FD32D61C9B500C5FDA7 /* Bag.swift in Sources */,
 				C0EF0FE42D61CB1F00C5FDA7 /* Navigation.swift in Sources */,
 				C0EF0FEC2D61CDC500C5FDA7 /* BaseViewModel.swift in Sources */,

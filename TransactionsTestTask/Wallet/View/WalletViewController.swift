@@ -69,6 +69,9 @@ final class WalletViewController: BaseViewController, Navigatable {
     private let transactionsTableView: UITableView = .init()
         .disableTranslates()
         .cornerRadius(16, maskedCorners: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
+    
+    private let emptyView: VerticalEmptyView = .init()
+        .disableTranslates()
         
     
     // MARK: - Route
@@ -105,6 +108,18 @@ final class WalletViewController: BaseViewController, Navigatable {
         viewModel.output.$btcBalance
             .sink { [weak self] balance in
                 self?.accountBalanceLabel.text = balance.toBalance()
+            }
+            .store(in: &bag)
+        
+        viewModel.output.$transactions
+            .sink { [weak self] transactions in
+                if transactions.isEmpty {
+                    self?.emptyView.hidden(false, animated: true)
+                    self?.emptyView.setup(with: .transaction)
+                } else {
+                    self?.emptyView.hidden(true, animated: true)
+                    self?.transactionsTableView.reloadData()
+                }
             }
             .store(in: &bag)
     }
@@ -146,6 +161,16 @@ final class WalletViewController: BaseViewController, Navigatable {
                 transactionsTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
                 transactionsTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
                 transactionsTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            ]
+        )
+        
+        self.view.add(
+            subview: emptyView,
+            with: [
+                emptyView.topAnchor.constraint(equalTo: buttonsStack.bottomAnchor, constant: 32),
+                emptyView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                emptyView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                emptyView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
             ]
         )
     }

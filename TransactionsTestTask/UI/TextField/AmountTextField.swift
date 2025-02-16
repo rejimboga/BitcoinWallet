@@ -17,6 +17,7 @@ final class AmountTextField: UITextField {
     }
     
     // MARK: - Inits
+    
     init() {
         super.init(frame: .zero)
         addTarget(self, action: #selector(textChanged), for: .editingChanged)

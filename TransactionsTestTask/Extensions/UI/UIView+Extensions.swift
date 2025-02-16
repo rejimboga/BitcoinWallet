@@ -37,6 +37,18 @@ extension UIView {
         return self
     }
     
+    @discardableResult
+    func hidden(_ value: Bool, animated: Bool = false) -> Self {
+        if animated {
+            runTransitionAnimation(duration: 0.4) { [weak self] view in
+                self?.isHidden = value
+            }
+        } else {
+            isHidden = value
+        }
+        return self
+    }
+    
     // MARK: - Constraints
     
     @discardableResult
