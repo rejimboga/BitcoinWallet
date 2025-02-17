@@ -14,6 +14,7 @@ final class WalletViewModel: BaseViewModel {
     
     struct WalletOutput: Outputable {
         @Variable var btcBalance: Double = .init()
+        @Variable var transactions: [Transaction] = []
     }
     
     // MARK: - Output
