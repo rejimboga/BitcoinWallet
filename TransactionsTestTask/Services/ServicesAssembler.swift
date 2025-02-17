@@ -10,7 +10,13 @@ enum ServicesAssembler {
     // MARK: - BitcoinRateService
     
     static let bitcoinRateService: PerformOnce<BitcoinRateService> = {
-        let service = BitcoinRateServiceImpl()
+        let service = BitcoinRateServiceImpl(apiEndpoint: APIEndpoints.btcCurrencyEndpoint, networkService: networkService())
+        
+        return { service }
+    }()
+    
+    static let networkService: PerformOnce<NetworkService> = {
+        let service = NetworkServiceImpl()
         
         return { service }
     }()
