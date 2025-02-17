@@ -33,7 +33,6 @@ final class WalletViewController: BaseViewController, Navigatable {
         .font(.systemFont(ofSize: 16, weight: .medium))
         .numberOfLines(1)
         .textColor(.systemGray5)
-        .text("$ 97,300")
     
     private let buttonsStack: UIStackView = .init()
         .axis(.horizontal)
@@ -111,6 +110,12 @@ final class WalletViewController: BaseViewController, Navigatable {
             }
             .store(in: &bag)
         
+        viewModel.output.$btcCurrency.ui
+            .sink { [weak self] currency in
+                self?.setupCurrencyInfo(with: currency)
+            }
+            .store(in: &bag)
+        
         viewModel.output.$transactions
             .sink { [weak self] transactions in
                 if transactions.isEmpty {
@@ -185,5 +190,13 @@ final class WalletViewController: BaseViewController, Navigatable {
     
     @objc private func newTransaction(_ sender: UIButton) {
         print("new transaction")
+    }
+    
+    private func setupCurrencyInfo(with info: BTCCurrency?) {
+        guard let info else {
+            btcCurrencyLabel.text = "$ 97,300" /// set cached value or default value
+            return
+        }
+        btcCurrencyLabel.text = "$ \(info.priceUsd.toRoundedDouble())"
     }
 }
