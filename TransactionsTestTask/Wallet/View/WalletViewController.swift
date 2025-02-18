@@ -189,7 +189,10 @@ final class WalletViewController: BaseViewController, Navigatable {
     }
     
     @objc private func newTransaction(_ sender: UIButton) {
-        print("new transaction")
+        transition(
+            to: Route.newTransaction,
+            as: .modal(presentationStyle: .pageSheet, transitionStyle: .coverVertical, animated: true)
+        )
     }
     
     private func setupCurrencyInfo(with info: BTCCurrency?) {

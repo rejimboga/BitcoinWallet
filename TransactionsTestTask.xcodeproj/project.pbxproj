@@ -18,6 +18,8 @@
 		1CA3B6702D22B0F600176711 /* TransactionsTestTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3B66F2D22B0F600176711 /* TransactionsTestTaskTests.swift */; };
 		C0BC6DC62D63B3EC003FB506 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BC6DC52D63B3EC003FB506 /* Event.swift */; };
 		C0BC6DC82D63B628003FB506 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BC6DC72D63B628003FB506 /* String+Extensions.swift */; };
+		C0BC6DCD2D63C1BD003FB506 /* NewTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BC6DCC2D63C1BD003FB506 /* NewTransactionViewController.swift */; };
+		C0BC6DCF2D63C3DE003FB506 /* NewTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BC6DCE2D63C3DE003FB506 /* NewTransactionViewModel.swift */; };
 		C0C26A8C2D63AEC500887AB7 /* BTCCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C26A8B2D63AEC500887AB7 /* BTCCurrency.swift */; };
 		C0C9CED72D639EE40030FE0A /* ResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9CED62D639EE40030FE0A /* ResponseWrapper.swift */; };
 		C0C9CEDA2D63A0080030FE0A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9CED92D63A0080030FE0A /* APIError.swift */; };
@@ -81,6 +83,8 @@
 		1CA3B6752D22B0F600176711 /* TransactionsTestTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsTestTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0BC6DC52D63B3EC003FB506 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		C0BC6DC72D63B628003FB506 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		C0BC6DCC2D63C1BD003FB506 /* NewTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionViewController.swift; sourceTree = "<group>"; };
+		C0BC6DCE2D63C3DE003FB506 /* NewTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionViewModel.swift; sourceTree = "<group>"; };
 		C0C26A8B2D63AEC500887AB7 /* BTCCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTCCurrency.swift; sourceTree = "<group>"; };
 		C0C9CED62D639EE40030FE0A /* ResponseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseWrapper.swift; sourceTree = "<group>"; };
 		C0C9CED92D63A0080030FE0A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				1CA3B6552D22B0F500176711 /* AppDelegate.swift */,
+				C0BC6DC92D63C19E003FB506 /* NewTransaction */,
 				C0EF0FF22D61EE0F00C5FDA7 /* TopUpPopup */,
 				C0EF0FD42D61C9D700C5FDA7 /* Extensions */,
 				C0EF0FD12D61C9AE00C5FDA7 /* Domain */,
@@ -201,6 +206,31 @@
 				1CA3B66F2D22B0F600176711 /* TransactionsTestTaskTests.swift */,
 			);
 			path = TransactionsTestTaskTests;
+			sourceTree = "<group>";
+		};
+		C0BC6DC92D63C19E003FB506 /* NewTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				C0BC6DCB2D63C1AE003FB506 /* ViewModel */,
+				C0BC6DCA2D63C1A8003FB506 /* View */,
+			);
+			path = NewTransaction;
+			sourceTree = "<group>";
+		};
+		C0BC6DCA2D63C1A8003FB506 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C0BC6DCC2D63C1BD003FB506 /* NewTransactionViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0BC6DCB2D63C1AE003FB506 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C0BC6DCE2D63C3DE003FB506 /* NewTransactionViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C0C26A8A2D63AEB800887AB7 /* Entites */ = {
@@ -554,6 +584,7 @@
 				C0BC6DC82D63B628003FB506 /* String+Extensions.swift in Sources */,
 				C0EF0FDC2D61CA8100C5FDA7 /* UILabel+Extensions.swift in Sources */,
 				C0EF100B2D620BBC00C5FDA7 /* AmountTextField.swift in Sources */,
+				C0BC6DCD2D63C1BD003FB506 /* NewTransactionViewController.swift in Sources */,
 				1CA3B65A2D22B0F500176711 /* WalletViewController.swift in Sources */,
 				C0EF0FDA2D61CA6100C5FDA7 /* VerticalButton.swift in Sources */,
 				C0EF0FD72D61C9EA00C5FDA7 /* UIView+Extensions.swift in Sources */,
@@ -574,6 +605,7 @@
 				C0D59BD62D626B88006B936E /* Transaction.swift in Sources */,
 				C0EF0FD32D61C9B500C5FDA7 /* Bag.swift in Sources */,
 				C0EF0FE42D61CB1F00C5FDA7 /* Navigation.swift in Sources */,
+				C0BC6DCF2D63C3DE003FB506 /* NewTransactionViewModel.swift in Sources */,
 				C0EF0FEC2D61CDC500C5FDA7 /* BaseViewModel.swift in Sources */,
 				0DF1D1402D22DC51001626E7 /* ServicesAssembler.swift in Sources */,
 				C0EF0FEA2D61CDA800C5FDA7 /* WalletViewModel.swift in Sources */,
