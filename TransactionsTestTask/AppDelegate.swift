@@ -22,7 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.overrideUserInterfaceStyle = .light
 
         if let window = window {
-            window.rootViewController = WalletViewController(viewModel: .init(btcCurrencyService: ServicesAssembler.bitcoinRateService()))
+            window.rootViewController = WalletViewController(
+                viewModel: .init(
+                    btcCurrencyService: ServicesAssembler.bitcoinRateService(),
+                    coreDataManager: ServicesAssembler.coreDataManager(),
+                    accountRepo: ServicesAssembler.accountRepo()
+                )
+            )
             window.makeKeyAndVisible()
         }
     }

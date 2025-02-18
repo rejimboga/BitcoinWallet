@@ -65,9 +65,12 @@ final class WalletViewController: BaseViewController, Navigatable {
         .width(120)
         .addTarget(self, selector: #selector(newTransaction(_:)), event: .touchUpInside)
     
-    private let transactionsTableView: UITableView = .init()
+    private lazy var transactionsTableView: UITableView = .init()
         .disableTranslates()
         .cornerRadius(16, maskedCorners: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
+        .showSeparator(false)
+        .dataSource(self)
+        .delegate(self)
     
     private let emptyView: VerticalEmptyView = .init()
         .disableTranslates()
@@ -80,6 +83,14 @@ final class WalletViewController: BaseViewController, Navigatable {
     // MARK: - VM
     
     private let viewModel: WalletViewModel
+    
+    // MARK: - Private properties
+    private var sections: [SectionModeling] = [] {
+        didSet {
+            guard let cellModel = sections.first?.cellModels.first else { return }
+            transactionsTableView.registerCell(cellModel.cellClass)
+        }
+    }
     
     // MARK: - Inits
     
@@ -116,15 +127,23 @@ final class WalletViewController: BaseViewController, Navigatable {
             }
             .store(in: &bag)
         
-        viewModel.output.$transactions
-            .sink { [weak self] transactions in
-                if transactions.isEmpty {
+        viewModel.output.$transactionSections
+            .sink { [weak self] sections in
+                if sections.isEmpty {
                     self?.emptyView.hidden(false, animated: true)
                     self?.emptyView.setup(with: .transaction)
                 } else {
+                    self?.sections = sections
                     self?.emptyView.hidden(true, animated: true)
                     self?.transactionsTableView.reloadData()
                 }
+            }
+            .store(in: &bag)
+        
+        viewModel.accountRepo.$balance
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] balance in
+                self?.accountBalanceLabel.text = balance.toBalance()
             }
             .store(in: &bag)
     }
@@ -201,5 +220,38 @@ final class WalletViewController: BaseViewController, Navigatable {
             return
         }
         btcCurrencyLabel.text = "$ \(info.priceUsd.toRoundedDouble())"
+    }
+}
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
+extension WalletViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        sections[section].cellModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellModel = sections[indexPath.section].cellModels[indexPath.row]
+        
+        guard 
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: cellModel.cellClass)) as? TransactionCell
+        else {
+            return UITableViewCell()
+        }
+        
+        cell.configure(with: cellModel)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].headerTitle
     }
 }

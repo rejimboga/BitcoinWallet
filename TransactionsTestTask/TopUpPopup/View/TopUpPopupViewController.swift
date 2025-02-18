@@ -53,6 +53,7 @@ final class TopUpPopupViewController: BaseViewController {
         .leftInset()
         .keyboardType(.decimalPad)
         .placeholder("Enter the amount")
+        .addDoneButtonOnKeyboard()
     
     private let completeButton: UIButton = .init()
         .disableTranslates()
@@ -64,6 +65,18 @@ final class TopUpPopupViewController: BaseViewController {
         .cornerRadius(16)
         .enabled(false)
         .addTarget(self, selector: #selector(completeAction(_:)), event: .touchUpInside)
+    
+    // MARK: - Properties
+    
+    private var viewModel: TopUpPopupViewModel
+    
+    // MARK: - Inits
+    init(viewModel: TopUpPopupViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     // MARK: - Lifecycles
     
@@ -171,9 +184,11 @@ final class TopUpPopupViewController: BaseViewController {
     @objc private func completeAction(_ sender: UIButton) {
         UIView.animate(withDuration: 0.15) { [weak self] in
             self?.completeButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            self?.viewModel.trigger(.topUp(self?.amountTextField.doubleValue ?? 0))
         } completion: { [weak self] _ in
             UIView.animate(withDuration: 0.15) {
                 self?.completeButton.transform = CGAffineTransform.identity
+                self?.dismiss(animated: true)
             }
         }
     }

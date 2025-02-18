@@ -24,6 +24,7 @@ final class NewTransactionViewController: BaseViewController {
         .leftInset()
         .keyboardType(.decimalPad)
         .placeholder("Enter the amount")
+        .addDoneButtonOnKeyboard()
     
     private let categoryTitle: UILabel = .init()
         .disableTranslates()
@@ -164,6 +165,7 @@ final class NewTransactionViewController: BaseViewController {
     @objc private func addTransactionAction(_ sender: UIButton) {
         UIView.animate(withDuration: 0.15) { [weak self] in
             self?.addButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            self?.viewModel.trigger(.addTransaction(self?.amountTextField.doubleValue ?? 0))
         } completion: { [weak self] _ in
             UIView.animate(withDuration: 0.15) {
                 self?.addButton.transform = CGAffineTransform.identity
