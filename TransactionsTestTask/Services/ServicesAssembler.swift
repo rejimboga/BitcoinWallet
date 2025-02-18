@@ -20,4 +20,16 @@ enum ServicesAssembler {
         
         return { service }
     }()
+    
+    static let coreDataManager: PerformOnce<CoreDataManager> = {
+        let manager = CoreDataManagerImpl()
+        
+        return { manager }
+    }()
+    
+    static let accountRepo: PerformOnce<AccountRepo> = {
+        let repo = AccountRepo(coreDataManager: coreDataManager())
+        
+        return { repo }
+    }()
 }

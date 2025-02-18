@@ -16,9 +16,19 @@ enum WalletRoutes: Routable {
     var vc: UIViewController {
         switch self {
         case .newTransaction:
-            return NewTransactionViewController(viewModel: .init())
+            return NewTransactionViewController(
+                viewModel: .init(
+                    accountRepo: ServicesAssembler.accountRepo(),
+                    coreDataManager: ServicesAssembler.coreDataManager()
+                )
+            )
         case .topUp:
-            return TopUpPopupViewController()
+            return TopUpPopupViewController(
+                viewModel: .init(
+                    coreDataManager: ServicesAssembler.coreDataManager(),
+                    accountRepo: ServicesAssembler.accountRepo()
+                )
+            )
         }
     }
 }
