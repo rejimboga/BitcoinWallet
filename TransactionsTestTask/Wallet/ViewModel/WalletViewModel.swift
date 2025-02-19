@@ -19,6 +19,7 @@ final class WalletViewModel: BaseViewModel {
         @Variable var isLoading = false
         
         @Event<BTCCurrency?> var btcCurrency
+        @Event<String> var cachedBtcCurrency
     }
     
     // MARK: - Output
@@ -101,7 +102,6 @@ final class WalletViewModel: BaseViewModel {
         Timer.publish(every: 300, on: .main, in: .common)
             .autoconnect()
             .sink{ [weak self] _ in
-                print("make request")
                 self?.fetchBtcCurrency()
             }
             .store(in: &bag)
@@ -112,10 +112,40 @@ final class WalletViewModel: BaseViewModel {
             switch result {
             case .success(let currency):
                 self?.output.$btcCurrency.send(currency)
+                self?.saveBtc(currency.priceUsd)
             case .failure:
                 self?.output.$btcCurrency.send(nil)
+                self?.getCachedBtcCurrency()
             }
         }
+    }
+    
+    private func saveBtc(_ currency: String) {
+        let btcCurrency = BtcCurrency(context: coreDataManager.context)
+        btcCurrency.currency = currency
+        
+        coreDataManager.addEntity(entity: btcCurrency)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    debugPrint("Couldn't save transaction, because of \(error)")
+                }
+            } receiveValue: { _ in }
+            .store(in: &bag)
+    }
+    
+    private func getCachedBtcCurrency() {
+        coreDataManager.fetchEntities(ofType: BtcCurrency.self)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    print("Error fetching entities: \(error)")
+                }
+            } receiveValue: { [weak self] entity in
+                guard let currency = entity.last else { return }
+                self?.output.$cachedBtcCurrency.send(currency.currency ?? "")
+            }
+            .store(in: &bag)
     }
     
     private func grouping(_ transactions: [Transaction]) {
@@ -153,10 +183,9 @@ extension WalletViewModel {
             fetchTransactions()
             
         case .updateCurrentPage:
-            if !transactions.isEmpty && currentPage != 1 {
-                currentPage = 1
-                fetchTransactions()
-            }
+            currentPage = 1
+            transactions = []
+            fetchTransactions()
         }
     }
 }

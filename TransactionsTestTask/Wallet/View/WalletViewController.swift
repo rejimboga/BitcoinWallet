@@ -123,7 +123,7 @@ final class WalletViewController: BaseViewController, Navigatable {
         
         viewModel.output.$btcCurrency.ui
             .sink { [weak self] currency in
-                self?.setupCurrencyInfo(with: currency)
+                self?.setupCurrencyInfo(with: currency?.priceUsd)
             }
             .store(in: &bag)
         
@@ -158,6 +158,13 @@ final class WalletViewController: BaseViewController, Navigatable {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] didUpdate in
                 self?.viewModel.trigger(.updateCurrentPage)
+            }
+            .store(in: &bag)
+        
+        viewModel.output.$cachedBtcCurrency.ui
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] cachedCurrency in
+                self?.setupCurrencyInfo(with: cachedCurrency)
             }
             .store(in: &bag)
     }
@@ -228,12 +235,12 @@ final class WalletViewController: BaseViewController, Navigatable {
         )
     }
     
-    private func setupCurrencyInfo(with info: BTCCurrency?) {
-        guard let info else {
+    private func setupCurrencyInfo(with currency: String?) {
+        guard let currency else {
             btcCurrencyLabel.text = "$ 97,300" /// set cached value or default value
             return
         }
-        btcCurrencyLabel.text = "$ \(info.priceUsd.toRoundedDouble())"
+        btcCurrencyLabel.text = "$ \(currency.toRoundedDouble())"
     }
 }
 

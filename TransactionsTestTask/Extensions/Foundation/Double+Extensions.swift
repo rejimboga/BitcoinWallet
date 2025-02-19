@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Double {
+public extension Double {
     func toBalance() -> String {
         let formatter = NumberFormatter()
         formatter.minimumFractionDigits = 2

@@ -65,7 +65,6 @@ final class NewTransactionViewModel: BaseViewModel {
                     debugPrint("Couldn't save transaction, because of \(error)")
                 }
             } receiveValue: { [weak self] transactions in
-                print("Transaction is saved")
                 self?.accountRepo.transactions = transactions
                 self?.accountRepo.$transactionDidUpdate.send(true)
                 self?.updateBalance(with: amount)
@@ -87,7 +86,6 @@ final class NewTransactionViewModel: BaseViewModel {
                     debugPrint("Couldn't save transaction, because of \(error)")
                 }
             } receiveValue: { [weak self] _ in
-                print("Balance is saved")
                 self?.accountRepo.balance = updatedBalance
             }
             .store(in: &bag)

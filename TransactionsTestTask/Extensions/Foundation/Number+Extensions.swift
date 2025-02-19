@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Formatter {
+public extension Formatter {
     static let withSeparator: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -18,7 +18,7 @@ extension Formatter {
     }()
 }
 
-extension Numeric {
+public extension Numeric {
     var formattedWithSeparator: String {
         Formatter.withSeparator.string(for: self) ?? ""
     }
