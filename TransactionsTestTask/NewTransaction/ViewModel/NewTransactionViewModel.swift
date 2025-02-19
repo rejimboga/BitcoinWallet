@@ -22,7 +22,7 @@ final class NewTransactionViewModel: BaseViewModel {
     var output: Output = .init()
     
     // MARK: - Private properties
-    private var selectedCategory: String = ""
+    private var selectedCategory: String = "Taxi"
     private var bag = Bag()
     
     // MARK: - Input
@@ -67,6 +67,7 @@ final class NewTransactionViewModel: BaseViewModel {
             } receiveValue: { [weak self] transactions in
                 print("Transaction is saved")
                 self?.accountRepo.transactions = transactions
+                self?.accountRepo.$transactionDidUpdate.send(true)
                 self?.updateBalance(with: amount)
             }
             .store(in: &bag)

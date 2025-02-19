@@ -16,6 +16,7 @@ final class WalletViewModel: BaseViewModel {
     struct WalletOutput: Outputable {
         @Variable var btcBalance: Double = .init()
         @Variable var transactionSections: [SectionModeling] = []
+        @Variable var isLoading = false
         
         @Event<BTCCurrency?> var btcCurrency
     }
@@ -34,6 +35,19 @@ final class WalletViewModel: BaseViewModel {
     
     private var bag = Bag()
     
+    private var currentPage = 1
+    private var transactions: [Transaction] = []
+    private var hasMore: Bool = true
+    
+    private enum LocalConstant {
+        static let pageSize = 10
+    }
+    
+    enum Input {
+        case loadTransactions
+        case updateCurrentPage
+    }
+    
     // MARK: - Init
     
     init(
@@ -47,7 +61,38 @@ final class WalletViewModel: BaseViewModel {
         
         getBtcCurrency()
         fetchTransactions()
-//        fetchBalance()
+    }
+    
+    // MARK: - Private methods
+    
+    private func fetchTransactions() {
+        guard !output.isLoading else { return }  // It's still loading
+        
+        output.isLoading = true
+        
+        coreDataManager.fetchEntities(ofType: Transaction.self, limit: LocalConstant.pageSize, offset: LocalConstant.pageSize * (currentPage - 1))
+            .sink(receiveCompletion: { [weak self] completion in
+                self?.output.isLoading = false
+                switch completion {
+                case .failure(let error):
+                    print("Pagination error \(error)")
+                case .finished:
+                    break
+                }
+            }, receiveValue: { [weak self] transactions in
+                if transactions.isEmpty {
+                    // if transactions is empty we don't do request
+                    self?.output.isLoading = false
+                    self?.hasMore = false
+                } else {
+                    self?.transactions.append(contentsOf: transactions) // update transaction list
+                    self?.hasMore = !transactions.isEmpty // update hasMore for new request
+                    
+                    self?.grouping(self?.transactions ?? transactions)
+                    self?.currentPage += 1  // update page
+                }
+            })
+            .store(in: &bag)
     }
     
     private func getBtcCurrency() {
@@ -73,25 +118,11 @@ final class WalletViewModel: BaseViewModel {
         }
     }
     
-    private func fetchTransactions() {
-        accountRepo.$transactions
-            .receive(on: DispatchQueue.main)
-            .sink { completion in
-                if case .failure(let error) = completion {
-                    print("Error fetching entities: \(error)")
-                }
-            } receiveValue: { [weak self] transactions in
-                self?.grouping(transactions)
-            }
-            .store(in: &bag)
-
-    }
-    
     private func grouping(_ transactions: [Transaction]) {
         let groupingTransactions = Dictionary(grouping: transactions) {
             $0.date
         }.sorted {
-            $0.key?.dayMonthYear() ?? Date.distantFuture > $1.key?.dayMonthYear() ?? Date.distantPast
+            ($0.key ?? Date.distantFuture) > ($1.key ?? Date.distantPast)
         }
         
         let sections = groupingTransactions.compactMap { (date, operations) -> SectionModeling? in
@@ -110,5 +141,22 @@ final class WalletViewModel: BaseViewModel {
         }
         
         output.$transactionSections.send(sections)
+    }
+}
+
+// MARK: - Trigger
+extension WalletViewModel {
+    func trigger(_ input: Input) {
+        switch input {
+            
+        case .loadTransactions:
+            fetchTransactions()
+            
+        case .updateCurrentPage:
+            if !transactions.isEmpty && currentPage != 1 {
+                currentPage = 1
+                fetchTransactions()
+            }
+        }
     }
 }

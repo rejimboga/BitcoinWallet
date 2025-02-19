@@ -8,5 +8,6 @@
 import Foundation
 
 protocol CellDesignable {
+    @discardableResult
     func configure(with cellModel: CellModeling) -> Self
 }

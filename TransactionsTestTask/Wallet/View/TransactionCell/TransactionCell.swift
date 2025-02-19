@@ -31,9 +31,15 @@ final class TransactionCell: UITableViewCell {
         .textColor(.black)
         .font(.systemFont(ofSize: 14, weight: .bold))
     
+    private let transactionDateLabel: UILabel = .init()
+        .disableTranslates()
+        .textColor(.gray)
+        .font(.systemFont(ofSize: 14, weight: .regular))
+    
     // MARK: - Inits
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         constraints()
     }
     
@@ -44,12 +50,20 @@ final class TransactionCell: UITableViewCell {
             subview: infoStackView,
             with: [
                 infoStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-                infoStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                infoStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
                 infoStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
             ]
         )
         
         infoStackView.addArrangedSubviews([categoryLabel, transactionTypeLabel])
+        
+        contentView.add(
+            subview: transactionDateLabel,
+            with: [
+                transactionDateLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+                transactionDateLabel.leadingAnchor.constraint(equalTo: infoStackView.trailingAnchor, constant: 8)
+            ]
+        )
         
         contentView.add(
             subview: transactionAmountLabel,
@@ -63,6 +77,7 @@ final class TransactionCell: UITableViewCell {
 
 // MARK: - CellDesignable
 extension TransactionCell: CellDesignable {
+    @discardableResult
     func configure(with cellModel: any CellModeling) -> Self {
         guard let cellModel = cellModel as? TransactionCellModel else { return self }
         
@@ -80,6 +95,7 @@ extension TransactionCell: CellDesignable {
             transactionTypeLabel.isHidden = true
         }
         
+        transactionDateLabel.text = cellModel.transactionDate.transactionTime()
         transactionAmountLabel.text = cellModel.transactionAmount.toBalance()
         
         return self
