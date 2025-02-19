@@ -15,7 +15,49 @@
 		1CA3B6622D22B0F600176711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3B6612D22B0F600176711 /* Assets.xcassets */; };
 		1CA3B6652D22B0F600176711 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3B6642D22B0F600176711 /* Base */; };
 		1CA3B6702D22B0F600176711 /* TransactionsTestTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3B66F2D22B0F600176711 /* TransactionsTestTaskTests.swift */; };
+		C05E2D332D665CB100249AE2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9CEE22D63A1B40030FE0A /* NetworkService.swift */; };
+		C05E2D342D665CB800249AE2 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9CEDF2D63A0B10030FE0A /* APIEndpoints.swift */; };
+		C05E2D352D665CBB00249AE2 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9CED92D63A0080030FE0A /* APIError.swift */; };
+		C05E2D362D665CC000249AE2 /* ResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9CED62D639EE40030FE0A /* ResponseWrapper.swift */; };
+		C05E2D372D665CC900249AE2 /* BitcoinRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF1D1442D22DCFF001626E7 /* BitcoinRateService.swift */; };
+		C05E2D382D665CCE00249AE2 /* BTCCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C26A8B2D63AEC500887AB7 /* BTCCurrency.swift */; };
+		C05E2D392D665CD200249AE2 /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FD22D61C9B500C5FDA7 /* Bag.swift */; };
+		C05E2D3A2D665CE400249AE2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CA6DFC2D64F62600A1E306 /* CoreDataManager.swift */; };
+		C05E2D3B2D665CED00249AE2 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9CEDC2D63A0420030FE0A /* HTTPMethod.swift */; };
+		C05E2D3C2D665CFA00249AE2 /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9CEE52D63A2370030FE0A /* APIEnvironment.swift */; };
+		C05E2D3E2D665D3E00249AE2 /* BitcoinRateServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E2D3D2D665D3E00249AE2 /* BitcoinRateServiceTest.swift */; };
+		C05E2D412D665E1A00249AE2 /* btcCurrencyMock.json in Resources */ = {isa = PBXBuildFile; fileRef = C05E2D402D665E1A00249AE2 /* btcCurrencyMock.json */; };
+		C05E2D432D665E6100249AE2 /* WalletViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E2D422D665E6100249AE2 /* WalletViewModelTest.swift */; };
+		C05E2D442D665E7C00249AE2 /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FE92D61CDA800C5FDA7 /* WalletViewModel.swift */; };
+		C05E2D452D665E7E00249AE2 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FEB2D61CDC500C5FDA7 /* BaseViewModel.swift */; };
+		C05E2D462D665E8600249AE2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BC6DC52D63B3EC003FB506 /* Event.swift */; };
+		C05E2D472D665E8C00249AE2 /* AccountRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0748E9D2D652716006C7335 /* AccountRepo.swift */; };
+		C05E2D482D665EC200249AE2 /* Transaction.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3B65E2D22B0F500176711 /* Transaction.xcdatamodeld */; };
+		C05E2D492D665ECF00249AE2 /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FED2D61D6ED00C5FDA7 /* Variable.swift */; };
+		C05E2D4A2D665ED200249AE2 /* SectionModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDA51E2D6502EB001075B1 /* SectionModeling.swift */; };
+		C05E2D4B2D665ED500249AE2 /* CellModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDA51A2D650296001075B1 /* CellModeling.swift */; };
+		C05E2D4C2D665EDC00249AE2 /* CellDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDA51C2D6502D7001075B1 /* CellDesignable.swift */; };
+		C05E2D4D2D665EE100249AE2 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDA5242D650620001075B1 /* UITableView+Extensions.swift */; };
+		C05E2D4E2D665EE200249AE2 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FF72D61F6C700C5FDA7 /* UITextField+Extensions.swift */; };
+		C05E2D4F2D665EE400249AE2 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FE12D61CB0200C5FDA7 /* UIViewController+Extensions.swift */; };
+		C05E2D502D665EE600249AE2 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FDF2D61CAC200C5FDA7 /* UIButton+Extensions.swift */; };
+		C05E2D512D665EE800249AE2 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FDD2D61CAA400C5FDA7 /* UIStackView+Extensions.swift */; };
+		C05E2D522D665EEA00249AE2 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FDB2D61CA8100C5FDA7 /* UILabel+Extensions.swift */; };
+		C05E2D532D665EEC00249AE2 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FD62D61C9EA00C5FDA7 /* UIView+Extensions.swift */; };
+		C05E2D542D665EF400249AE2 /* UpdateUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FE52D61CB3F00C5FDA7 /* UpdateUI.swift */; };
+		C05E2D552D665EF700249AE2 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF0FE32D61CB1F00C5FDA7 /* Navigation.swift */; };
+		C05E2D562D665F0200249AE2 /* TransactionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDA5202D650391001075B1 /* TransactionCellModel.swift */; };
+		C05E2D572D665F0500249AE2 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDA5182D650267001075B1 /* TransactionCell.swift */; };
+		C05E2D582D665F0B00249AE2 /* TransactionSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CA6DF92D64F4AA00A1E306 /* TransactionSections.swift */; };
+		C05E2D5A2D665F2F00249AE2 /* CoreDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E2D592D665F2F00249AE2 /* CoreDataManagerTest.swift */; };
 		C0748E9E2D652716006C7335 /* AccountRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0748E9D2D652716006C7335 /* AccountRepo.swift */; };
+		C0B4E5BE2D665ABE00059108 /* MockServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B4E5BD2D665ABE00059108 /* MockServiceProtocol.swift */; };
+		C0B4E5BF2D665ABE00059108 /* MockServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B4E5BD2D665ABE00059108 /* MockServiceProtocol.swift */; };
+		C0B4E5C52D665B0C00059108 /* BitcoinRateServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B4E5C42D665B0C00059108 /* BitcoinRateServiceMock.swift */; };
+		C0B4E5C62D665B0C00059108 /* BitcoinRateServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B4E5C42D665B0C00059108 /* BitcoinRateServiceMock.swift */; };
+		C0B4E5C82D665B2B00059108 /* CoreDataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B4E5C72D665B2B00059108 /* CoreDataManagerMock.swift */; };
+		C0B4E5C92D665B2B00059108 /* CoreDataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B4E5C72D665B2B00059108 /* CoreDataManagerMock.swift */; };
+		C0B4E5CB2D665B5300059108 /* FoundationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B4E5CA2D665B5300059108 /* FoundationTest.swift */; };
 		C0BC6DC62D63B3EC003FB506 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BC6DC52D63B3EC003FB506 /* Event.swift */; };
 		C0BC6DC82D63B628003FB506 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BC6DC72D63B628003FB506 /* String+Extensions.swift */; };
 		C0BC6DCD2D63C1BD003FB506 /* NewTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BC6DCC2D63C1BD003FB506 /* NewTransactionViewController.swift */; };
@@ -91,7 +133,15 @@
 		1CA3B66B2D22B0F600176711 /* TransactionsTestTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsTestTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA3B66F2D22B0F600176711 /* TransactionsTestTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTestTaskTests.swift; sourceTree = "<group>"; };
 		1CA3B6752D22B0F600176711 /* TransactionsTestTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsTestTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C05E2D3D2D665D3E00249AE2 /* BitcoinRateServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinRateServiceTest.swift; sourceTree = "<group>"; };
+		C05E2D402D665E1A00249AE2 /* btcCurrencyMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = btcCurrencyMock.json; sourceTree = "<group>"; };
+		C05E2D422D665E6100249AE2 /* WalletViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModelTest.swift; sourceTree = "<group>"; };
+		C05E2D592D665F2F00249AE2 /* CoreDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTest.swift; sourceTree = "<group>"; };
 		C0748E9D2D652716006C7335 /* AccountRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepo.swift; sourceTree = "<group>"; };
+		C0B4E5BD2D665ABE00059108 /* MockServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceProtocol.swift; sourceTree = "<group>"; };
+		C0B4E5C42D665B0C00059108 /* BitcoinRateServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinRateServiceMock.swift; sourceTree = "<group>"; };
+		C0B4E5C72D665B2B00059108 /* CoreDataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerMock.swift; sourceTree = "<group>"; };
+		C0B4E5CA2D665B5300059108 /* FoundationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationTest.swift; sourceTree = "<group>"; };
 		C0BC6DC52D63B3EC003FB506 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		C0BC6DC72D63B628003FB506 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		C0BC6DCC2D63C1BD003FB506 /* NewTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +213,7 @@
 		0DF1D13E2D22DC2D001626E7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C0B4E5BC2D665AA100059108 /* MockedServices */,
 				C0748E9C2D65270B006C7335 /* Repos */,
 				C0CA6DFB2D64F61D00A1E306 /* CoreData */,
 				C0C26A8A2D63AEB800887AB7 /* Entites */,
@@ -226,6 +277,10 @@
 			isa = PBXGroup;
 			children = (
 				1CA3B66F2D22B0F600176711 /* TransactionsTestTaskTests.swift */,
+				C0B4E5CA2D665B5300059108 /* FoundationTest.swift */,
+				C05E2D3D2D665D3E00249AE2 /* BitcoinRateServiceTest.swift */,
+				C05E2D422D665E6100249AE2 /* WalletViewModelTest.swift */,
+				C05E2D592D665F2F00249AE2 /* CoreDataManagerTest.swift */,
 			);
 			path = TransactionsTestTaskTests;
 			sourceTree = "<group>";
@@ -236,6 +291,24 @@
 				C0748E9D2D652716006C7335 /* AccountRepo.swift */,
 			);
 			path = Repos;
+			sourceTree = "<group>";
+		};
+		C0B4E5BC2D665AA100059108 /* MockedServices */ = {
+			isa = PBXGroup;
+			children = (
+				C0B4E5BD2D665ABE00059108 /* MockServiceProtocol.swift */,
+				C0B4E5C42D665B0C00059108 /* BitcoinRateServiceMock.swift */,
+				C0B4E5C72D665B2B00059108 /* CoreDataManagerMock.swift */,
+			);
+			path = MockedServices;
+			sourceTree = "<group>";
+		};
+		C0B4E5C02D665AC600059108 /* JsonMocks */ = {
+			isa = PBXGroup;
+			children = (
+				C05E2D402D665E1A00249AE2 /* btcCurrencyMock.json */,
+			);
+			path = JsonMocks;
 			sourceTree = "<group>";
 		};
 		C0BC6DC92D63C19E003FB506 /* NewTransaction */ = {
@@ -339,6 +412,7 @@
 		C0EF0FC72D61C63500C5FDA7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C0B4E5C02D665AC600059108 /* JsonMocks */,
 				1CA3B6612D22B0F600176711 /* Assets.xcassets */,
 				1CA3B6632D22B0F600176711 /* LaunchScreen.storyboard */,
 				1CA3B6662D22B0F600176711 /* Info.plist */,
@@ -605,6 +679,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C05E2D412D665E1A00249AE2 /* btcCurrencyMock.json in Resources */,
 				1CA3B6622D22B0F600176711 /* Assets.xcassets in Resources */,
 				1CA3B6652D22B0F600176711 /* Base in Resources */,
 			);
@@ -655,6 +730,7 @@
 				C0C9CEE02D63A0B10030FE0A /* APIEndpoints.swift in Sources */,
 				C0EF0FDE2D61CAA400C5FDA7 /* UIStackView+Extensions.swift in Sources */,
 				C0BC6DC62D63B3EC003FB506 /* Event.swift in Sources */,
+				C0B4E5BE2D665ABE00059108 /* MockServiceProtocol.swift in Sources */,
 				C0BDA5192D650267001075B1 /* TransactionCell.swift in Sources */,
 				C0BDA51F2D6502EB001075B1 /* SectionModeling.swift in Sources */,
 				C0D59BD42D6267F6006B936E /* VerticalEmptyView.swift in Sources */,
@@ -674,8 +750,10 @@
 				C0C9CEE62D63A2370030FE0A /* APIEnvironment.swift in Sources */,
 				C0EF0FE82D61CB7D00C5FDA7 /* WalletRoutes.swift in Sources */,
 				C0BDA5252D650620001075B1 /* UITableView+Extensions.swift in Sources */,
+				C0B4E5C52D665B0C00059108 /* BitcoinRateServiceMock.swift in Sources */,
 				C0EF0FF62D61EE3700C5FDA7 /* TopUpPopupViewController.swift in Sources */,
 				C0CA6DFA2D64F4AA00A1E306 /* TransactionSections.swift in Sources */,
+				C0B4E5C82D665B2B00059108 /* CoreDataManagerMock.swift in Sources */,
 				C0EF0FEE2D61D6ED00C5FDA7 /* Variable.swift in Sources */,
 				C0BDA51B2D650296001075B1 /* CellModeling.swift in Sources */,
 				C0CA6DFE2D64FBCD00A1E306 /* Transaction.xcdatamodeld in Sources */,
@@ -686,7 +764,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C05E2D472D665E8C00249AE2 /* AccountRepo.swift in Sources */,
+				C0B4E5CB2D665B5300059108 /* FoundationTest.swift in Sources */,
+				C05E2D552D665EF700249AE2 /* Navigation.swift in Sources */,
+				C05E2D542D665EF400249AE2 /* UpdateUI.swift in Sources */,
+				C05E2D432D665E6100249AE2 /* WalletViewModelTest.swift in Sources */,
+				C05E2D342D665CB800249AE2 /* APIEndpoints.swift in Sources */,
+				C05E2D5A2D665F2F00249AE2 /* CoreDataManagerTest.swift in Sources */,
+				C05E2D4A2D665ED200249AE2 /* SectionModeling.swift in Sources */,
+				C05E2D3B2D665CED00249AE2 /* HTTPMethod.swift in Sources */,
+				C05E2D562D665F0200249AE2 /* TransactionCellModel.swift in Sources */,
+				C05E2D462D665E8600249AE2 /* Event.swift in Sources */,
+				C05E2D512D665EE800249AE2 /* UIStackView+Extensions.swift in Sources */,
 				1CA3B6702D22B0F600176711 /* TransactionsTestTaskTests.swift in Sources */,
+				C05E2D362D665CC000249AE2 /* ResponseWrapper.swift in Sources */,
+				C05E2D4D2D665EE100249AE2 /* UITableView+Extensions.swift in Sources */,
+				C05E2D4B2D665ED500249AE2 /* CellModeling.swift in Sources */,
+				C05E2D522D665EEA00249AE2 /* UILabel+Extensions.swift in Sources */,
+				C0B4E5C92D665B2B00059108 /* CoreDataManagerMock.swift in Sources */,
+				C0B4E5C62D665B0C00059108 /* BitcoinRateServiceMock.swift in Sources */,
+				C05E2D502D665EE600249AE2 /* UIButton+Extensions.swift in Sources */,
+				C05E2D572D665F0500249AE2 /* TransactionCell.swift in Sources */,
+				C05E2D352D665CBB00249AE2 /* APIError.swift in Sources */,
+				C05E2D3C2D665CFA00249AE2 /* APIEnvironment.swift in Sources */,
+				C05E2D3A2D665CE400249AE2 /* CoreDataManager.swift in Sources */,
+				C05E2D4C2D665EDC00249AE2 /* CellDesignable.swift in Sources */,
+				C05E2D382D665CCE00249AE2 /* BTCCurrency.swift in Sources */,
+				C05E2D532D665EEC00249AE2 /* UIView+Extensions.swift in Sources */,
+				C05E2D492D665ECF00249AE2 /* Variable.swift in Sources */,
+				C05E2D332D665CB100249AE2 /* NetworkService.swift in Sources */,
+				C05E2D3E2D665D3E00249AE2 /* BitcoinRateServiceTest.swift in Sources */,
+				C05E2D4E2D665EE200249AE2 /* UITextField+Extensions.swift in Sources */,
+				C05E2D482D665EC200249AE2 /* Transaction.xcdatamodeld in Sources */,
+				C05E2D452D665E7E00249AE2 /* BaseViewModel.swift in Sources */,
+				C05E2D372D665CC900249AE2 /* BitcoinRateService.swift in Sources */,
+				C05E2D442D665E7C00249AE2 /* WalletViewModel.swift in Sources */,
+				C05E2D392D665CD200249AE2 /* Bag.swift in Sources */,
+				C0B4E5BF2D665ABE00059108 /* MockServiceProtocol.swift in Sources */,
+				C05E2D582D665F0B00249AE2 /* TransactionSections.swift in Sources */,
+				C05E2D4F2D665EE400249AE2 /* UIViewController+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

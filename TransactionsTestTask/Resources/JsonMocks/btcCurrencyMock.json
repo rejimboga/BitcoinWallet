@@ -1,0 +1,18 @@
+{
+  "data": {
+    "id": "bitcoin",
+    "rank": "1",
+    "symbol": "BTC",
+    "name": "Bitcoin",
+    "supply": "19826440.0000000000000000",
+    "maxSupply": "21000000.0000000000000000",
+    "marketCapUsd": "1906870362019.6226426330057320",
+    "volumeUsd24Hr": "8875336942.9037828705518899",
+    "priceUsd": "96178.1521049478697453",
+    "changePercent24Hr": "0.7000227598742741",
+    "vwap24Hr": "95094.0142857432599010",
+    "explorer": "https://blockchain.info/"
+  },
+  "timestamp": 1739981755169
+}
+

@@ -56,7 +56,6 @@ final class TopUpPopupViewModel: BaseViewModel {
                     debugPrint("Couldn't save transaction, because of \(error)")
                 }
             } receiveValue: { [weak self] transactions in
-                print("Earns is saved")
                 self?.accountRepo.transactions = transactions
             }
             .store(in: &bag)
@@ -76,7 +75,6 @@ final class TopUpPopupViewModel: BaseViewModel {
                     debugPrint("Couldn't save transaction, because of \(error)")
                 }
             } receiveValue: { [weak self] _ in
-                print("Earns is saved")
                 self?.accountRepo.balance = updatedBalance
                 self?.accountRepo.$balanceDidUpdate.send(true)
             }

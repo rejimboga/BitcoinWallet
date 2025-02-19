@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+public extension String {
     func toRoundedDouble() -> Double {
         let doubleValue = Double(self) ?? 0
         return (doubleValue * 100).rounded() / 100
