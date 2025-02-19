@@ -15,6 +15,13 @@ extension Date {
         return title
     }
     
+    func transactionTime() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        let title = formatter.string(from: self)
+        return title
+    }
+    
     func dayMonthYear() -> Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "d MMMM yyyy"

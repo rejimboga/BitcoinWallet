@@ -78,6 +78,7 @@ final class TopUpPopupViewModel: BaseViewModel {
             } receiveValue: { [weak self] _ in
                 print("Earns is saved")
                 self?.accountRepo.balance = updatedBalance
+                self?.accountRepo.$balanceDidUpdate.send(true)
             }
             .store(in: &bag)
     }

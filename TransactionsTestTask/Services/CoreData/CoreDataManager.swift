@@ -13,6 +13,7 @@ protocol CoreDataManager: AnyObject {
     var context: NSManagedObjectContext { get }
     
     func fetchEntities<T: NSManagedObject>(ofType type: T.Type) -> AnyPublisher<[T], Error>
+    func fetchEntities<T: NSManagedObject>(ofType type: T.Type, limit: Int?, offset: Int?) -> AnyPublisher<[T], Error>
     func addEntity<T: NSManagedObject>(entity: T) -> AnyPublisher<[T], Error>
 }
 
@@ -53,6 +54,31 @@ extension CoreDataManagerImpl: CoreDataManager {
         .eraseToAnyPublisher()
     }
     
+    func fetchEntities<T>(ofType type: T.Type, limit: Int? = nil, offset: Int? = nil) -> AnyPublisher<[T], Error> where T : NSManagedObject {
+        Future { promise in
+            let fetchRequest = NSFetchRequest<T>(entityName: String(describing: T.self))
+            
+            if let limit = limit {
+                fetchRequest.fetchLimit = limit
+            }
+            
+            if let offset = offset {
+                fetchRequest.fetchOffset = offset
+            }
+            
+            let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+            fetchRequest.sortDescriptors = [sortDescriptor]
+
+            do {
+                let result = try self.context.fetch(fetchRequest)
+                promise(.success(result))
+            } catch {
+                promise(.failure(error))
+            }
+        }
+        .eraseToAnyPublisher()
+    }
+    
     func addEntity<T>(entity: T) -> AnyPublisher<[T], any Error> where T : NSManagedObject {
         Future { promise in
             do {
@@ -62,7 +88,7 @@ extension CoreDataManagerImpl: CoreDataManager {
                 let fetchRequest = NSFetchRequest<T>(entityName: String(describing: T.self))
                 let updatedEntities = try self.context.fetch(fetchRequest)
                             
-                // Возвращаем обновленные данные
+                // Return updated entities
                 promise(.success(updatedEntities))
             } catch {
                 promise(.failure(error))

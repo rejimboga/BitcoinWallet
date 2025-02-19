@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func startApp(at: UIWindow?) {
         window?.overrideUserInterfaceStyle = .light
-
+        
         if let window = window {
             window.rootViewController = WalletViewController(
                 viewModel: .init(

@@ -146,6 +146,20 @@ final class WalletViewController: BaseViewController, Navigatable {
                 self?.accountBalanceLabel.text = balance.toBalance()
             }
             .store(in: &bag)
+        
+        viewModel.accountRepo.$transactionDidUpdate.ui
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] didUpdate in
+                self?.viewModel.trigger(.updateCurrentPage)
+            }
+            .store(in: &bag)
+        
+        viewModel.accountRepo.$balanceDidUpdate.ui
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] didUpdate in
+                self?.viewModel.trigger(.updateCurrentPage)
+            }
+            .store(in: &bag)
     }
     
     // MARK: - Constraints
@@ -236,15 +250,15 @@ extension WalletViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellModel = sections[indexPath.section].cellModels[indexPath.row]
         
-        guard 
-            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: cellModel.cellClass)) as? TransactionCell
+        guard
+            let tableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: cellModel.cellClass)) as? TransactionCell
         else {
             return UITableViewCell()
         }
         
-        cell.configure(with: cellModel)
+        tableViewCell.configure(with: cellModel)
         
-        return cell
+        return tableViewCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -253,5 +267,12 @@ extension WalletViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].headerTitle
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
+        if bottomEdge >= scrollView.contentSize.height {
+            viewModel.trigger(.loadTransactions)  // Load more transactions
+        }
     }
 }

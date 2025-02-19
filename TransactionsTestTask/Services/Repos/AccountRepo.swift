@@ -10,6 +10,8 @@ import Foundation
 final class AccountRepo {
     @Published var balance: Double = 0
     @Published var transactions: [Transaction] = []
+    @Event<Bool> var transactionDidUpdate
+    @Event<Bool> var balanceDidUpdate
     
     private let coreDataManager: CoreDataManager
     private var bag = Bag()
